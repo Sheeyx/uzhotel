@@ -1,0 +1,10 @@
+cat >> .gitignore <<'EOF'
+# Dependencies and build
+node_modules/
+build/
+dist/
+*.log
+.env
+
+# Local assets (not pushed to GitHub)
+
