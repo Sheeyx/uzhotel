@@ -99,9 +99,9 @@ export default function Header() {
               aria-label="Go home"
             >
               <img
-          src="/assets/logo/SNlogo.png"
+          src="/logo.svg"
           alt="Logo"
-          className="w-[48px] h-[48px] md:w-[60px] md:h-[60px]"
+          className="w-[82px] h-[52px] md:w-[112px] md:h-[92px]"
         />
             </button>
 
