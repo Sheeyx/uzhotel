@@ -99,9 +99,9 @@ export default function Header() {
               aria-label="Go home"
             >
               <img
-          src="/logo.svg"
+          src="/assets/logo/logo.webp"
           alt="Logo"
-          className="w-[82px] h-[52px] md:w-[112px] md:h-[92px]"
+          className="w-[62px] h-[52px] md:w-[92px] md:h-[72px]"
         />
             </button>
 
