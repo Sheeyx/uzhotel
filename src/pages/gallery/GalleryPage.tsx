@@ -1,8 +1,9 @@
-// src/pages/Gallery.tsx
 import React, { JSX, useEffect, useMemo, useState } from "react";
+import { useCopy } from "../../i18n/useCopy";
+import { GALLERY_COPY, GalleryCopy } from "../../i18n/pages/gallary";
 
 const IMAGES: string[] = [
-  "assets/gallarypage/img1.png",
+  "/assets/gallarypage/img1.png",  // ⬅️ fixed leading slash
   "/assets/gallarypage/img2.png",
   "/assets/gallarypage/img3.png",
   "/assets/gallarypage/img4.png",
@@ -45,6 +46,7 @@ const TILE_HEIGHTS = [
 ];
 
 export default function GalleryPage(): JSX.Element {
+  const T = useCopy<GalleryCopy>(GALLERY_COPY);
   const [index, setIndex] = useState<number | null>(null);
 
   const open = (i: number) => setIndex(i);
@@ -77,16 +79,19 @@ export default function GalleryPage(): JSX.Element {
     pre(IMAGES[(index - 1 + IMAGES.length) % IMAGES.length]);
   }, [index]);
 
-  const countLabel = useMemo(() => (index === null ? "" : `${index + 1} / ${IMAGES.length}`), [index]);
+  const countLabel = useMemo(
+    () => (index === null ? "" : T.aria.count(index + 1, IMAGES.length)),
+    [index, T]
+  );
 
   return (
     <main className="bg-white">
       {/* Hero */}
       <header className="bg-[#0B1320] text-white">
         <div className="mx-auto max-w-6xl px-4 py-10 md:py-14 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight">Foto galereya</h1>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight">{T.title}</h1>
           <p className="mt-3 mx-auto max-w-3xl font-inter text-[16px] leading-[32px] text-white/80">
-            Instagram uslubidagi galereya — turli o‘lchamdagi suratlar beqiyos, bo‘shliqsiz ko‘rinishda.
+            {T.subtitle}
           </p>
         </div>
         <div className="h-px w-full bg-white/10" />
@@ -97,25 +102,27 @@ export default function GalleryPage(): JSX.Element {
         <div className="columns-2 md:columns-3 lg:columns-4 gap-4">
           {IMAGES.map((src, i) => {
             const tile = TILE_HEIGHTS[i % TILE_HEIGHTS.length];
+            const human = i + 1;
             return (
               <figure key={i} className="mb-4 break-inside-avoid overflow-hidden rounded-2xl ring-1 ring-black/5">
                 <button
                   type="button"
                   onClick={() => open(i)}
                   className="group block w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                  aria-label={`Rasmni kattalashtirish ${i + 1}`}
+                  aria-label={T.aria.open(human)}
                 >
                   {/* Wrapper controls the tile’s height; image covers it nicely */}
                   <div className={`w-full ${tile}`}>
                     <img
                       src={src}
-                      alt={`Galereya rasmi ${i + 1}`}
+                      alt={T.aria.imgAlt(human)}
                       loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     />
                   </div>
                 </button>
-                <figcaption className="sr-only">Hotel gallery image {i + 1}</figcaption>
+                <figcaption className="sr-only">{T.aria.imgAlt(human)}</figcaption>
               </figure>
             );
           })}
@@ -124,14 +131,16 @@ export default function GalleryPage(): JSX.Element {
 
       {/* Lightbox */}
       {index !== null && (
-        <div role="dialog" aria-modal="true" aria-label="Image preview" className="fixed inset-0 z-50">
+        <div role="dialog" aria-modal="true" aria-label={T.aria.dialog} className="fixed inset-0 z-50">
           <div className="absolute inset-0 bg-black/80" onClick={close} />
           <div className="relative z-10 flex h-full w-full items-center justify-center px-4">
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/80 text-sm">{countLabel}</div>
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/80 text-sm">
+              {countLabel}
+            </div>
 
             <img
               src={IMAGES[index]}
-              alt={`Preview ${index + 1}`}
+              alt={T.aria.imgAlt(index + 1)}
               className="max-h-[85vh] max-w-[95vw] rounded-xl object-contain shadow-2xl select-none"
               draggable={false}
               onClick={next} // click image → next
@@ -141,7 +150,7 @@ export default function GalleryPage(): JSX.Element {
             <button
               type="button"
               onClick={close}
-              aria-label="Yopish"
+              aria-label={T.aria.close}
               className="absolute top-4 right-4 grid h-10 w-10 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm hover:bg-white/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <CloseIcon className="h-6 w-6" />
@@ -151,7 +160,7 @@ export default function GalleryPage(): JSX.Element {
             <button
               type="button"
               onClick={prev}
-              aria-label="Oldingi rasm"
+              aria-label={T.aria.prev}
               className="absolute left-3 md:left-6 grid h-10 w-10 md:h-12 md:w-12 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm hover:bg-white/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -161,7 +170,7 @@ export default function GalleryPage(): JSX.Element {
             <button
               type="button"
               onClick={next}
-              aria-label="Keyingi rasm"
+              aria-label={T.aria.next}
               className="absolute right-3 md:right-6 grid h-10 w-10 md:h-12 md:w-12 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm hover:bg-white/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <ChevronRight className="h-6 w-6" />
