@@ -46,11 +46,11 @@ export default function Parking() {
       lead={T.lead}
       bullets={T.bullets}
       images={[
-        "/assets/services/parking1.png",
-        "/assets/services/parking2.png",
-        "/assets/services/parking3.png",
-        "/assets/services/parking4.png",
-        "/assets/services/parking5.png",
+        "/assets/services/parking1.webp",
+        "/assets/services/parking2.webp",
+        "/assets/services/parking3.webp",
+        "/assets/services/parking4.webp",
+        "/assets/services/parking5.webp",
       ]}
     />
   );

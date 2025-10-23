@@ -27,11 +27,11 @@ export default function Pool() {
       title={T.title}
       lead={T.lead}
       images={[
-        "/assets/services/summer1.png",
-        "/assets/services/summer2.png",
-        "/assets/services/summer3.png",
-        "/assets/services/summer4.png",
-        "/assets/services/summer5.png",
+        "/assets/services/summer1.webp",
+        "/assets/services/summer2.webp",
+        "/assets/services/summer3.webp",
+        "/assets/services/summer4.webp",
+        "/assets/services/summer5.webp",
       ]}
     />
   );

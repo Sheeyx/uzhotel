@@ -8,9 +8,9 @@ type SlideBase = { id: number; image: string };
 
 // Rasmlar public/ ichidan absolute path bilan
 const SLIDES_BASE: SlideBase[] = [
-  { id: 1, image: "/assets/hero/Hotel.png" },
-  { id: 2, image: "/assets/hero/img1.png" },
-  { id: 3, image: "/assets/hero/img2.png" },
+  { id: 1, image: "/assets/hero/Hotel.webp" },
+  { id: 2, image: "/assets/hero/img1.webp" },
+  { id: 3, image: "/assets/hero/img2.webp" },
 ];
 
 export default function HeroSlider() {

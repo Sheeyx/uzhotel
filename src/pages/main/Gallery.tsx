@@ -64,7 +64,7 @@ export default function Gallery() {
           variants={item}
           whileHover={{ scale: 1.04, transition: { duration: 0.35 } }}
         >
-          <img src="/assets/galary/galary5.png" alt={T.alts.lobby} className="w-full h-full object-cover" />
+          <img src="/assets/galary/galary5.webp" alt={T.alts.lobby} className="w-full h-full object-cover" />
         </motion.figure>
 
         <motion.figure
@@ -72,7 +72,7 @@ export default function Gallery() {
           variants={item}
           whileHover={{ scale: 1.04, transition: { duration: 0.35 } }}
         >
-          <img src="/assets/galary/galary2.png" alt={T.alts.room} className="w-full h-full object-cover" />
+          <img src="/assets/galary/galary2.webp" alt={T.alts.room} className="w-full h-full object-cover" />
         </motion.figure>
 
         <motion.figure
@@ -80,7 +80,7 @@ export default function Gallery() {
           variants={item}
           whileHover={{ scale: 1.04, transition: { duration: 0.35 } }}
         >
-          <img src="/assets/galary/galary3.png" alt={T.alts.pool} className="w-full h-full object-cover" />
+          <img src="/assets/galary/galary3.webp" alt={T.alts.pool} className="w-full h-full object-cover" />
         </motion.figure>
 
         <motion.figure
@@ -88,7 +88,7 @@ export default function Gallery() {
           variants={item}
           whileHover={{ scale: 1.04, transition: { duration: 0.35 } }}
         >
-          <img src="/assets/galary/galary1.png" alt={T.alts.restaurant} className="w-full h-full object-cover" />
+          <img src="/assets/galary/galary1.webp" alt={T.alts.restaurant} className="w-full h-full object-cover" />
         </motion.figure>
 
         <motion.figure
@@ -96,7 +96,7 @@ export default function Gallery() {
           variants={item}
           whileHover={{ scale: 1.04, transition: { duration: 0.35 } }}
         >
-          <img src="/assets/galary/galary4.png" alt={T.alts.deluxe} className="w-full h-full object-cover" />
+          <img src="/assets/galary/galary4.webp" alt={T.alts.deluxe} className="w-full h-full object-cover" />
         </motion.figure>
       </motion.div>
 

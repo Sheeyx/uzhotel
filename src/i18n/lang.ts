@@ -1,9 +1,9 @@
 export type LangCode = "UZ" | "RU" | "EN";
 
 export const LANGUAGES = [
-  { code: "UZ" as LangCode, label: "O‘zbekcha", flag: "/assets/navbar/uz.png" },
-  { code: "RU" as LangCode, label: "Русский", flag: "/assets/navbar/ru.png" },
-  { code: "EN" as LangCode, label: "English", flag: "/assets/navbar/us.png" },
+  { code: "UZ" as LangCode, label: "O‘zbekcha", flag: "/assets/navbar/uz.webp" },
+  { code: "RU" as LangCode, label: "Русский", flag: "/assets/navbar/ru.webp" },
+  { code: "EN" as LangCode, label: "English", flag: "/assets/navbar/us.webp" },
 ];
 export const I18N: Record<
   LangCode,

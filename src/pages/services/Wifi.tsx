@@ -33,7 +33,7 @@ export default function Wifi() {
   const T = copy[code as "UZ" | "EN" | "RU"] || copy.UZ;
 
   return (
-    <ServiceSplit title={T.title} image="/assets/services/wifi.png">
+    <ServiceSplit title={T.title} image="/assets/services/wifi.webp">
       {T.paragraphs.map((p, i) => (
         <p
           key={i}

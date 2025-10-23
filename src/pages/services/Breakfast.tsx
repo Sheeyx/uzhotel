@@ -44,11 +44,11 @@ export default function Breakfast() {
       lead={T.lead}
       bullets={T.bullets}
       images={[
-        "/assets/services/meal1.png",
-        "/assets/services/meal2.png",
-        "/assets/services/meal3.png",
-        "/assets/services/meal3.png",
-        "/assets/services/meal3.png",
+        "/assets/services/meal1.webp",
+        "/assets/services/meal2.webp",
+        "/assets/services/meal3.webp",
+        "/assets/services/meal3.webp",
+        "/assets/services/meal3.webp",
       ]}
     />
   );

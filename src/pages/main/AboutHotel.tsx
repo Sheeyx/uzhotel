@@ -57,8 +57,8 @@ export default function AboutSection() {
         <motion.div variants={fadeUp} className="w-full md:w-1/2">
           <div className="group relative">
             <img
-              src="/assets/about_hotel.png"
-              alt="S-Namangan Hotel"
+              src="assets/about/about_hotel.webp"
+              alt="S-Namangan Hotels"
               loading="lazy"
               className="w-full rounded-2xl object-cover shadow-2xl shadow-black/30 ring-1 ring-white/10 transition-transform duration-500 group-hover:-translate-y-1"
             />

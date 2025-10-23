@@ -23,7 +23,7 @@ export default function AboutPage() {
         <div className="lg:col-span-2">
           <div className="aspect-[4/3] overflow-hidden rounded-2xl">
             <img
-              src="/assets/about/about1.png"
+              src="/assets/about/about1.webp"
               alt={T.galleryAlt.hero}
               className="h-full w-full object-cover"
               loading="eager"
@@ -33,19 +33,19 @@ export default function AboutPage() {
 
         {/* Right 2x2 grid on desktop */}
         <div className="hidden lg:grid grid-cols-2 grid-rows-2 gap-4">
-          <img src="/assets/about/about2.png" alt={T.galleryAlt.i1} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
-          <img src="/assets/about/about3.png" alt={T.galleryAlt.i2} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
-          <img src="/assets/about/about4.png" alt={T.galleryAlt.i3} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
-          <img src="/assets/about/about5.png" alt={T.galleryAlt.i4} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
+          <img src="/assets/about/about2.webp" alt={T.galleryAlt.i1} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
+          <img src="/assets/about/about3.webp" alt={T.galleryAlt.i2} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
+          <img src="/assets/about/about4.webp" alt={T.galleryAlt.i3} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
+          <img src="/assets/about/about5.webp" alt={T.galleryAlt.i4} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
         </div>
       </div>
 
       {/* Mobile extra images */}
       <div className="mt-4 grid grid-cols-2 gap-4 lg:hidden">
-        <img src="/assets/about/about2.png" alt={T.galleryAlt.m1} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
-        <img src="/assets/about/about3.png" alt={T.galleryAlt.m2} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
-        <img src="/assets/about/about4.png" alt={T.galleryAlt.m3} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
-        <img src="/assets/about/about5.png" alt={T.galleryAlt.m4} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
+        <img src="/assets/about/about2.webp" alt={T.galleryAlt.m1} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
+        <img src="/assets/about/about3.webp" alt={T.galleryAlt.m2} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
+        <img src="/assets/about/about4.webp" alt={T.galleryAlt.m3} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
+        <img src="/assets/about/about5.webp" alt={T.galleryAlt.m4} className="h-full w-full rounded-2xl object-cover" loading="lazy" />
       </div>
 
       {/* === CONTENT + BOOKING (two-column) === */}

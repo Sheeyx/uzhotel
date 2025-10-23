@@ -28,11 +28,11 @@ export default function Birds() {
       title={T.title}
       lead={T.lead}
       images={[
-        "/assets/services/bird1.png",
-        "/assets/services/bird2.png",
-        "/assets/services/bird3.png",
-        "/assets/services/bird4.png",
-        "/assets/services/bird5.png",
+        "/assets/services/bird1.webp",
+        "/assets/services/bird2.webp",
+        "/assets/services/bird3.webp",
+        "/assets/services/bird4.webp",
+        "/assets/services/bird5.webp",
       ]}
     />
   );
