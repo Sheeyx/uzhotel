@@ -167,3 +167,16 @@ export const GmailOfficialAppIcon = ({
     />
   </svg>
 );
+
+
+export default function MailIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="44" height="44" rx="10" fill="#3B82F6"/>
+      <path d="M12 16.5H36C38.485 16.5 40.5 18.515 40.5 21V31.5C40.5 33.985 38.485 36 36 36H12C9.515 36 7.5 33.985 7.5 31.5V21C7.5 18.515 9.515 16.5 12 16.5Z"
+            stroke="white" strokeWidth="3" fill="none" strokeLinejoin="round"/>
+      <path d="M8 20.5L24 32.5L40 20.5"
+            stroke="white" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}

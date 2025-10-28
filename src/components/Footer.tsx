@@ -26,13 +26,19 @@ export default function Footer() {
       id: 2,
       href: "https://t.me/S_Namangan",
       label: T.social.telegram,
-      src: "/assets/social/tg.svg", 
+      src: "/assets/social/tg.svg",
     },
     {
-      id: 3,
+      id: 3, // Mail.ru first
+      href: "mailto:snamanganhotel@mail.ru",
+      label: T.social.email,
+      src: "/assets/social/email.svg",
+    },
+    {
+      id: 4, // Gmail after Mail.ru
       href: "mailto:snamanganhotel@gmail.com",
       label: T.social.email,
-      src: "/assets/social/email.svg", 
+      src: "/assets/social/mailogo.svg",
     },
   ];
 
@@ -49,11 +55,11 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 py-6">
         {/* Top row: logo + socials */}
         <div className="flex items-center justify-between">
-           <img
-          src="/assets/logo/logosn.webp"
-          alt="Logo"
-    className="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-full object-cover"
-        />
+          <img
+            src="/assets/logo/logosn.webp"
+            alt="Logo"
+            className="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-full object-cover"
+          />
 
           <div className="flex items-center gap-3">
             {SOCIALS.map((s) => (

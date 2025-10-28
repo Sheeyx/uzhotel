@@ -5,11 +5,26 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "../../i18n/LanguageContext";
 import { getContactCopy } from "../../i18n/main/contact";
 
-type ContactItemBase = { id: number; icon: IconType; text: string };
+type ContactItemBase = { id: number; icon: IconType; title?: string; text: string | string[] };
+
 const CONTACTS_BASE: ContactItemBase[] = [
-  { id: 1, icon: FaMapMarkerAlt, text: "160116 Namangan Viloyati Namangan Shahar Islom Karimov ko‘chasi, 2uy" },
-  { id: 2, icon: FaPhoneAlt,     text: "+998 69 226 30 30" },
-  { id: 3, icon: FaEnvelope,     text: "snamanganhotel@mail.ru" },
+  {
+    id: 1,
+    icon: FaMapMarkerAlt,
+    text: "160116 Namangan Viloyati Namangan Shahar Islom Karimov ko‘chasi, 2uy",
+  },
+  {
+    id: 2,
+    icon: FaPhoneAlt,
+    title: "Phone",
+    text: ["+998 78 223 00 31", "+998 69 226 30 30"], // both numbers under one section
+  },
+  {
+    id: 3,
+    icon: FaEnvelope,
+    // 🔹 Mail.ru first, then Gmail
+    text: ["snamanganhotel@mail.ru"],
+  },
 ];
 
 export default function Contact() {
@@ -17,7 +32,6 @@ export default function Contact() {
   const T = getContactCopy(code);
   const prefersReduced = useReducedMotion();
 
-  // Variants
   const container = {
     hidden: {},
     show: {
@@ -58,15 +72,17 @@ export default function Contact() {
           className="w-full h-[500px] md:h-[600px]"
         >
           <iframe
-            title="S-Namangan Hotel Map"
-            src="https://www.google.com/maps?q=41.00640258249219,71.64460652962399&hl=es;z=15&output=embed"
-            width="100%"
-            height="100%"
-            style={{ border: "none" }}
-            allowFullScreen
-            loading="lazy"
-            className="w-full h-full rounded-none"
-          />
+          title="S-Namangan Hotel Map"
+          // ✅ updated coordinates (40.996139, 71.585639)
+          src="https://www.google.com/maps?q=40.99606,71.58564&hl=en&z=15&output=embed"
+          width="100%"
+          height="100%"
+          style={{ border: "none" }}
+          allowFullScreen
+          loading="lazy"
+          className="w-full h-full rounded-none"
+        />
+
         </motion.div>
 
         {/* Contact Info */}
@@ -85,7 +101,7 @@ export default function Contact() {
           </motion.p>
 
           <motion.ul variants={container} className="space-y-6">
-            {CONTACTS_BASE.map(({ id, icon: Icon, text }) => {
+            {CONTACTS_BASE.map(({ id, icon: Icon, text, title }) => {
               const itemT = (T as any).items?.[id];
               const content = itemT?.textOverride ?? text;
               const isPhone = id === 2;
@@ -97,8 +113,29 @@ export default function Contact() {
                     <Icon className="text-lg" />
                   </span>
                   <div>
-                    <h4 className="font-semibold text-gray-900">{itemT?.title}</h4>
-                    {isPhone ? (
+                    <h4 className="font-semibold text-gray-900">{itemT?.title ?? title}</h4>
+
+                    {Array.isArray(content) ? (
+                      content.map((val) =>
+                        isEmail ? (
+                          <a key={val} href={`mailto:${val}`} className="block text-gray-600 hover:text-gray-800">
+                            {val}
+                          </a>
+                        ) : isPhone ? (
+                          <a
+                            key={val}
+                            href={`tel:${String(val).replace(/[^\d+]/g, "")}`}
+                            className="block text-gray-600 hover:text-gray-800"
+                          >
+                            {val}
+                          </a>
+                        ) : (
+                          <p key={val} className="text-gray-600">
+                            {val}
+                          </p>
+                        )
+                      )
+                    ) : isPhone ? (
                       <a href={`tel:${String(content).replace(/[^\d+]/g, "")}`} className="text-gray-600 hover:text-gray-800">
                         {content}
                       </a>
