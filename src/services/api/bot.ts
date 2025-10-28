@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // use your actual base url
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4008";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
 // TEMP: hardcode to prove request path works
 const API_KEY = "super-secret-123";
