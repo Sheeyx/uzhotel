@@ -29,7 +29,7 @@ export type UIBookingPayload = {
   totalPrice: number;
 };
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4008";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 const API_KEY  = process.env.NEXT_PUBLIC_API_KEY || "super-secret-123";
 
 console.log("[email] API_BASE =", API_BASE);
