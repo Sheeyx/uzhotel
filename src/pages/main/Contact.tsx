@@ -8,7 +8,7 @@ import { getContactCopy } from "../../i18n/main/contact";
 type ContactItemBase = { id: number; icon: IconType; text: string };
 const CONTACTS_BASE: ContactItemBase[] = [
   { id: 1, icon: FaMapMarkerAlt, text: "160116 Namangan Viloyati Namangan Shahar Islom Karimov ko‘chasi, 2uy" },
-  { id: 2, icon: FaPhoneAlt,     text: "+998 (78) 223-00-31" },
+  { id: 2, icon: FaPhoneAlt,     text: "+998 69 226 30 30" },
   { id: 3, icon: FaEnvelope,     text: "snamanganhotel@mail.ru" },
 ];
 

@@ -88,22 +88,22 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <button
-              onClick={() => {
-                if (location.pathname === "/") {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                } else {
-                  navigate("/");
-                }
-              }}
-              className="flex items-center"
-              aria-label="Go home"
-            >
-              <img
-          src="/assets/logo/logo.webp"
-          alt="Logo"
-          className="w-[62px] h-[52px] md:w-[92px] md:h-[72px]"
-        />
-            </button>
+  onClick={() => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  }}
+  className="flex items-center"
+  aria-label="Go home"
+>
+  <img
+    src="/assets/logo/logosn.webp"
+    alt="Logo"
+    className="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-full object-cover"
+  />
+</button>
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-6 lg:gap-8">
