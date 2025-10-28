@@ -50,9 +50,9 @@ export default function Footer() {
         {/* Top row: logo + socials */}
         <div className="flex items-center justify-between">
            <img
-          src="/assets/logo/logo.webp"
+          src="/assets/logo/logosn.webp"
           alt="Logo"
-          className="w-[62px] h-[52px] md:w-[92px] md:h-[72px]"
+    className="w-[42px] h-[42px] md:w-[52px] md:h-[52px] rounded-full object-cover"
         />
 
           <div className="flex items-center gap-3">
