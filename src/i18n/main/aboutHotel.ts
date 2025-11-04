@@ -1,5 +1,4 @@
 // src/i18n/sections/about.ts
-
 import { LangCode } from "../lang";
 
 export type AboutCopy = {
@@ -10,21 +9,20 @@ export type AboutCopy = {
 
 export const ABOUT_COPY: Record<LangCode, AboutCopy> = {
   UZ: {
-    title: "S-Namangan mehmonxonasi haqida",
-    body:
-      "S-Namangan mehmonxonasi – Namangan shahrining markazida joylashgan zamonaviy va qulay maskan. Bizning maqsadimiz – har bir mehmonimizga o‘zini uyidagidek erkin his qilish imkonini yaratish.",
+    title: "Sodiq-Namangan mehmonxonasi haqida",
+    body: `Namangan viloyati O‘zbekistonning sharqiy qismida, betakror va go‘zal Farg‘ona vodiysining “Oltin vodiy” deb ataluvchi shimoli-g‘arbiy qismida joylashgan. Mughkala va Axsikent kabi arxeologik yodgorliklar, shuningdek, Namangan, Chortoq, Chust va Uchqo‘rg‘on shaharlaridagi tarixiy meros bu yurtning yuksak madaniyati va sivilizatsiyasidan dalolat beradi...`,
     cta: "Batafsil ko‘rish",
   },
+
   RU: {
-    title: "О гостинице S-Namangan",
-    body:
-      "Гостиница S-Namangan — современное и уютное место в самом центре Намангана. Наша цель — чтобы каждый гость чувствовал себя как дома.",
+    title: "Об отеле «Sodiq-Namangan»",
+    body: `Наманганская область находится в восточной части Узбекистана, в северо-западной стороне прекрасной и неповторимой Ферганской долины, получившей название «Золотая долина». Такие археологические памятники, как Мугкала и Ахсикент, исторические памятники в городах Намангане, Чартаке, Чусте и Учкургане – все это свидетельствует о высокой культуре и достижениях цивилизации...`,
     cta: "Подробнее",
   },
+
   EN: {
-    title: "About S-Namangan Hotel",
-    body:
-      "S-Namangan Hotel is a modern, comfortable stay in the heart of Namangan. Our goal is to make every guest feel right at home.",
+    title: "About Sodiq-Namangan Hotel",
+    body: `Namangan Region is located in the eastern part of Uzbekistan, in the northwestern area of the beautiful and unique Fergana Valley, known as the “Golden Valley.” Archaeological monuments such as Mughkala and Akhsikent, and historical landmarks in the cities of Namangan, Chartak, Chust, and Uchqurghon all testify to the region’s rich culture and civilization...`,
     cta: "Learn more",
   },
 };

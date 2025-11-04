@@ -1,3 +1,4 @@
+// src/pages/services/Parking.tsx
 import React from "react";
 import ServiceGallery from "../../components/ServiceGallery";
 import { useLanguage } from "../../i18n/LanguageContext";
@@ -8,32 +9,29 @@ export default function Parking() {
   const copy = {
     UZ: {
       title: "Avtoturargoh",
-      lead: `Mehmonxonamiz mehmonlari uchun keng va xavfsiz bepul avtoturargoh mavjud. Endi avtomobilingiz uchun joy izlash haqida o‘ylamaysiz — bizda hammasi tayyor!`,
+      lead: `Mehmonxonamiz mehmonlari uchun xavfsiz va bepul avtoturargoh taqdim etilgan — barchasi sizning qulayligingiz uchun! Nega bu xizmatni tanlash kerak?`,
       bullets: [
-        "24/7 bepul parking xizmati",
-        "Xavfsizlik kameralarida doimiy nazorat",
-        "Qulay joylashuv – mehmonxonamiz yonida",
-        "Avtomobilingizni ishonch bilan qoldirishingiz mumkin",
+        "24/7 bepul avtoturargoh xizmati",
+        "Doimiy videokuzatuv nazorati",
+        "Avtomobilingizni bemalol qo‘yishingiz mumkin",
       ],
     },
     EN: {
-      title: "Parking Space",
-      lead: `Our hotel provides guests with a spacious and secure free parking area. No need to worry about finding a spot for your car — everything is ready for your convenience!`,
+      title: "Parking",
+      lead: `For our hotel guests, a safe and free parking area is provided — everything is made for your convenience! Why choose this service?`,
       bullets: [
         "Free parking available 24/7",
-        "Continuous CCTV surveillance",
-        "Convenient location – right next to the hotel",
-        "Leave your car with confidence",
+        "Constant CCTV surveillance",
+        "You can park your car safely and with ease",
       ],
     },
     RU: {
-      title: "Парковка",
-      lead: `Для гостей нашего отеля предусмотрена просторная и безопасная бесплатная парковка. Больше не нужно думать о месте для машины — у нас всё готово для вашего удобства!`,
+      title: "Стоянка",
+      lead: `Для гостей нашего отеля предусмотрена безопасная бесплатная парковка — всё сделано для вашего удобства! Почему стоит выбрать эту услугу?`,
       bullets: [
         "Бесплатная парковка 24/7",
-        "Постоянный контроль с камер наблюдения",
-        "Удобное расположение – рядом с отелем",
-        "Можно спокойно оставить автомобиль",
+        "Постоянный контроль камеры наблюдения",
+        "Можно спокойно установить машину",
       ],
     },
   };

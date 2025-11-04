@@ -8,16 +8,19 @@ export default function Birds() {
 
   const copy = {
     UZ: {
-      title: "Qushlar",
-      lead: `Tabiat bilan uyg‘unlikni yoqtiradigan mehmonlar uchun mehmonxona atrofida yaratilgan yashil hudud, gulzorlar va qushlar bog‘i alohida e’tiborga loyiq. Ayniqsa, qushlar bosh joyi – sayohatchilar uchun unutilmas manzara bo‘lib, turli xil qushlarning chiroyli ovozlari ertalabki tongni yanada yoqimli qiladi.`,
+      title: "Ichki hovli va bog‘",
+      lead:
+        "Tabiat bilan uyg‘unlikni yoqtiradigan mehmonlar uchun mehmonxona atrofida barpo etilgan yashil hudud, gul va qushlar bog‘i alohida e’tiborga loyiq. HOTEL \"Sodik-Namangan\"ning ichki, keng hovlisida bog‘ bo‘ylab sayr qilishingiz mumkin — bu yerda ekzotik qushlarning shirali sayrashi va flora hamda faunaning unutilmas muhitini his qilasiz. Ekzotik interyerli bog‘imiz fotosessiyalar uchun a’lo fon yaratadi.",
     },
     EN: {
-      title: "Birds",
-      lead: `For guests who love harmony with nature, the green area, flower gardens, and bird park created around the hotel deserve special attention. In particular, the bird sanctuary offers travelers an unforgettable view, as the beautiful songs of various birds make the early morning even more pleasant.`,
+      title: "Inner Courtyard & Garden",
+      lead:
+        "The green zone and the flower & bird park created around the hotel deserve special attention for guests who love harmony with nature. In the spacious inner courtyard of HOTEL \"Sodik-Namangan\" you can stroll through the garden, where the melodious songs of exotic birds and an unforgettable atmosphere of flora and fauna await you. Our garden, with its exotic design, provides excellent backdrops for photo shoots.",
     },
     RU: {
-      title: "Птицы",
-      lead: `Для гостей, любящих гармонию с природой, зелёная зона, цветники и птичий парк, созданные вокруг отеля, заслуживают особого внимания. Особенно уголок птиц — это незабываемое зрелище для путешественников, а красивые трели разных птиц делают утро ещё приятнее.`,
+      title: "Внутренний двор и сад",
+      lead:
+        "Особое внимания заслуживает созданные вокруг отеля зеленая зона, парк цветов и птиц, специально разработанные для гостей, любителей гармонии с природой. Просторный двор во внутренней части HOTEL «Sodik-Namangan», где можно прогуляться в саду и Вас встретит сладкоголосое пение экзотических птиц и незабываемая атмосфера флоры и фауны. Наш сад с экзотическим интерьером создаст превосходные фоны для фотосессии.",
     },
   };
 

@@ -7,16 +7,16 @@ export default function Pool() {
 
   const copy = {
     UZ: {
-      title: "Yozgi Basseyn",
-      lead: `S-Namangan mehmonxonasi mehmonlari uchun yoz oylarida alohida qulaylik – zamonaviy ochiq yozgi basseyn taqdim etiladi. Keng va toza basseyn hududi mehmonlarga nafaqat suzish, balki salqinlikda maroqli dam olish imkonini ham beradi.`,
+      title: "Basseyn",
+      lead: `Yoz faslida «Sodiq-Namangan» mehmonxonasi mehmonlarga alohida qulayliklar — zamonaviy suv filtrlash tizimiga ega ochiq basseynni taqdim etadi. Keng va toza basseyn hududi mehmonlarga suzish, tongni tetiklik bilan boshlash va sog‘lom dam olish yoki shunchaki issiq kunda salqinlikdan bahramand bo‘lish imkonini beradi.`,
     },
     EN: {
-      title: "Summer Pool",
-      lead: `During the summer months, S-Namangan Hotel offers guests a special comfort — a modern open-air swimming pool. The spacious and clean pool area allows guests not only to swim but also to relax and enjoy a refreshing atmosphere.`,
+      title: "Swimming Pool",
+      lead: `During the summer season, the «Sodiq-Namangan» Hotel offers guests a special comfort — a modern open-air swimming pool equipped with a water filtration system. The spacious and clean pool area allows guests to swim, start the day with energy and well-being, or simply enjoy the coolness on a hot day.`,
     },
     RU: {
-      title: "Летний бассейн",
-      lead: `В летний период отель S-Namangan предоставляет своим гостям особое удобство — современный открытый бассейн. Просторная и чистая зона бассейна позволяет гостям не только плавать, но и приятно отдохнуть в прохладе.`,
+      title: "Бассеин",
+      lead: `В летний период отель «Sodiq-Namangan» предлагает своим гостям персональные удобства — современный открытый бассейн с системой фильтрации воды. Просторная и чистая зона бассейна позволяет гостям поплавать, начать день бодро и с пользой для здоровья или просто насладиться прохладой в жаркий день.`,
     },
   };
 

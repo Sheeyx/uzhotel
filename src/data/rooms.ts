@@ -33,20 +33,30 @@ export type Room = RoomBase & RoomText;
 
 /* ===== Amenity labels (i18n) ===== */
 export const AMENITY_LABEL: Record<LangCode, Record<AmenityKey, string>> = {
-  UZ: { breakfast: "Nonushta “Bufet”", wifi: "Wi-Fi", sauna: "Sauna", parking: "Avtoturargoh" },
-  RU: { breakfast: "Завтрак «Шведский стол»", wifi: "Wi-Fi", sauna: "Сауна", parking: "Парковка" },
-  EN: { breakfast: "Breakfast (Buffet)", wifi: "Wi-Fi", sauna: "Sauna", parking: "Parking" },
+  UZ: {
+    breakfast: "Nonushta “Bufet”",
+    wifi: "Wi-Fi",
+    sauna: "Sauna",
+    parking: "Avtoturargoh",
+  },
+  RU: {
+    breakfast: "Завтрак «Шведский стол»",
+    wifi: "Wi-Fi",
+    sauna: "Сауна",
+    parking: "Парковка",
+  },
+  EN: {
+    breakfast: "Breakfast (Buffet)",
+    wifi: "Wi-Fi",
+    sauna: "Sauna",
+    parking: "Parking",
+  },
 };
 
 /* ===== Image helper (public/) ===== */
 const P = (p: string) => `/assets/${p}`;
 
-/* ===== Language-agnostic base =====
-   Prices (so'm) from your table, left→right per room id (1..6):
-
-   Citizens of Uzbekistan: 400000, 480000, 600000, 720000, 850000, 940000
-   Foreign/CIS/LBG:       470000, 550000, 670000, 860000, 990000, 1150000
-*/
+/* ===== Base room data ===== */
 const ROOMS_BASE: RoomBase[] = [
   {
     id: 1,
@@ -73,7 +83,7 @@ const ROOMS_BASE: RoomBase[] = [
       P("room/two/tworoom5.webp"),
       P("room/two/tworoom6.webp"),
     ],
-    type: "standard_twin",
+    type: "suite_single",
     amenities: ["breakfast", "wifi", "parking"],
   },
   {
@@ -87,7 +97,7 @@ const ROOMS_BASE: RoomBase[] = [
       P("room/triple/triple4.webp"),
       P("room/triple/triple5.webp"),
     ],
-    type: "standard_triple",
+    type: "suite_single",
     amenities: ["wifi", "parking"],
   },
   {
@@ -97,11 +107,11 @@ const ROOMS_BASE: RoomBase[] = [
     images: [
       P("room/family/family1.webp"),
       P("room/family/family4.webp"),
-      P("room/family/family1.webp"),
-      P("room/family/family4.webp"),
+      P("room/family/family2.webp"),
+      P("room/family/family3.webp"),
       P("room/family/family5.webp"),
     ],
-    type: "suite_single",
+    type: "standard_twin",
     amenities: ["breakfast", "sauna", "wifi"],
   },
   {
@@ -115,7 +125,7 @@ const ROOMS_BASE: RoomBase[] = [
       P("room/luxurysingle/room4.webp"),
       P("room/luxurysingle/room5.webp"),
     ],
-    type: "suite_single",
+    type: "suite_double",
     amenities: ["breakfast", "wifi", "parking"],
   },
   {
@@ -129,113 +139,117 @@ const ROOMS_BASE: RoomBase[] = [
       P("room/luxurytwo/room4.webp"),
       P("room/luxurytwo/room5.webp"),
     ],
-    type: "suite_double",
+    type: "standard_triple",
     amenities: ["wifi", "breakfast", "parking"],
   },
 ];
 
-/* ===== Per-language text ===== */
+/* ===== Room descriptions by language =====
+   UZ va EN bo‘limlari RU ma’lumotlariga moslashtirildi.
+*/
 const ROOMS_TEXT: Record<LangCode, Record<number, RoomText>> = {
   UZ: {
     1: {
-      title: "Standard bir kishilik",
+      title: "Standart — bir kishilik",
       capacity: "1 mehmon",
       size: "18 m²",
       rooms: "1 xona",
       desc:
-        "Yakka sayohatchilar uchun qulay va shinam xonamiz. Ish safarlari yoki qisqa dam olish uchun barcha zarur sharoitlar yaratildi.",
+        "18 m² maydonga ega qulay va yorug‘ xona. Qulay yashash uchun zarur jihozlar: konditsioner, choy-kofe to‘plami, xalat va tapochkalar. Xonada dush yoki vanna, sochiqlar va shaxsiy gigiyena vositalari mavjud.",
     },
     2: {
-      title: "Standard ikki kishilik",
-      capacity: "2 mehmon",
+      title: "Standart — ikki karavotli",
+      capacity: "1 mehmon",
       size: "21 m²",
       rooms: "1 xona",
       desc:
-        "Do‘stlar yoki hamkasblar bilan sayohat uchun qulay xona. Ikki yotoq, yorug‘ va zamonaviy interyer.",
+        "21 m² maydondagi standart ikki karavotli xona. Ortopedik matraslar, konditsioner, televizor, choy-kofe to‘plami, tapochkalar. Dush yoki vanna, sochiqlar va gigiyena vositalari bilan ta’minlangan.",
     },
     3: {
-      title: "Standard uch kishilik",
-      capacity: "3 mehmon",
-      size: "30 m²",
+      title: "Oilaviy — katta karavotli",
+      capacity: "1 mehmon",
+      size: "21 m²",
       rooms: "1 xona",
       desc:
-        "Oila yoki uch kishilik guruh uchun keng va yorug‘ xona. Zamonaviy qulayliklar bilan jihozlangan.",
+        "21 m² maydondagi katta karavotli oilaviy xona. Yumshoq kreslo va jurnallik mavjud. Konditsioner, televizor, choy-kofe to‘plami, tapochkalar. Dush yoki vanna, sochiqlar va gigiyena vositalari. Xizmatga «shved stoli» nonushta va ichimlik suvi kiradi.",
     },
     4: {
-      title: "Oilaviy xona",
-      capacity: "2–3 mehmon",
-      size: "40 m²",
-      rooms: "1 xona",
-      desc:
-        "Keng va nafis xona — qulaylik, uslub va qo‘shimcha xizmatlarni qadrlaydigan mehmonlar uchun.",
-    },
-    5: {
-      title: "Lyuks — bir kishilik",
-      capacity: "1 mehmon",
-      size: "33 m²",
-      rooms: "2 xona",
-      desc:
-        "King-size karavot, alohida mehmonxona zonasi, vanna xonasi, iqlim nazorati va mini-bar.",
-    },
-    6: {
-      title: "Deluxe ikki kishilik",
+      title: "Lyuks xonasi",
       capacity: "2 mehmon",
       size: "33 m²",
+      rooms: "1 xona",
+      desc:
+        "33 m² maydondagi lyuks: mehmonxona zonasi va yotoqxona (king-size karavot), smart-TV, yuqori tezlikdagi internet, choy-kofe, ichimlik suvi, xalat va tapochkalar. Keng vanna xonasi. «Shved stoli» nonushta kiritilgan.",
+    },
+    5: {
+      title: "Yarim lyuks — katta karavotli",
+      capacity: "2 mehmon",
+      size: "21 m²",
       rooms: "2 xona",
       desc:
-        "Juftliklar va ish safaridagi mehmonlar uchun mos: yaxshilangan ovoz izolatsiyasi, shinam yotoq.",
+        "21 m² qulay xona katta karavot bilan: konditsioner, televizor, choy-kofe to‘plami, tapochkalar. Dush yoki vanna, sochiqlar va bir martalik gigiyena vositalari. «Shved stoli» nonushta va ichimlik suvi kiritilgan.",
+    },
+    6: {
+      title: "Uch kishilik xona",
+      capacity: "3 mehmon",
+      size: "25 m²",
+      rooms: "2 xona",
+      desc:
+        "25 m² uch kishilik xona: ortopedik karavotlar, konditsioner, televizor, choy-kofe to‘plami, tapochkalar. Keng vanna xonasi, sochiqlar va gigiyena vositalari. «Shved stoli» nonushta va ichimlik suvi kiritilgan.",
     },
   },
+
   RU: {
     1: {
-      title: "Стандарт одноместный",
+      title: "Стандартный номер – одноместный",
       capacity: "1 гость",
       size: "18 м²",
       rooms: "1 комната",
       desc:
-        "Уютный номер для индивидуального размещения: чисто, тихо и всё необходимое для отдыха.",
+        "Уютный и светлый номер площадью 18 кв.м., оборудован всем необходимым для комфортного проживания гостей. Контролируемой системой кондиционирования, набором для заваривания чая и кофе, халатом и тапочками. В номерах имеется душевые кабины, либо ванна обеспеченные полотенцами и одноразовыми средствами личной гигиены.",
     },
     2: {
-      title: "Стандарт двухместный",
-      capacity: "2 гостя",
+      title: "Стандартный номер с двумя кроватями",
+      capacity: "1 гость",
       size: "21 м²",
       rooms: "1 комната",
       desc:
-        "Светлый и удобный номер для поездок с друзьями или коллегами. Две кровати, современный интерьер.",
+        "Двухместный номер с площадью 21 кв.м. оснащен двумя удобными кроватями с ортопедическими матрасами, Номер также оснащен контролируемой системой кондиционирования, телевизором, набором для заваривания чая и кофе, тапочками. В номерах имеется душевые кабины, либо ванна обеспеченные полотенцами и одноразовыми средствами личной гигиены.",
     },
     3: {
-      title: "Стандарт трехместный",
-      capacity: "3 гостя",
-      size: "30 м²",
+      title: "Семейный номер с большой кроватью",
+      capacity: "1 гость",
+      size: "21 м²",
       rooms: "1 комната",
       desc:
-        "Просторный номер, подходящий для семьи или компании из трёх человек.",
+        "Удобный номер с одной большой кроватью площадью 21 кв.м. с мягким креслом и журнальным столиком, широкая кровать с удобным матрасом обеспечит спокойный и безмятежный сон. Номер также оснащен Контролируемой системой кондиционирования, телевизором, набором для заваривания чая и кофе, тапочками. В номерах имеется душевые кабины, либо ванна обеспеченные полотенцами и одноразовыми средствами личной гигиены. В услугу так же включен завтрак «шведский стол», питьевая вода.",
     },
     4: {
-      title: "Семейный номер",
-      capacity: "2–3 гостя",
-      size: "40 м²",
+      title: "Номер люкс",
+      capacity: "2 гостя",
+      size: "33 м²",
       rooms: "1 комната",
       desc:
-        "Элегантный и просторный номер с гостиной зоной и быстрым Wi-Fi.",
+        "Гостям предоставляется двухкомнатный люкс площадью 33 кв.м. с гостиной, где находится мягкие диваны и кресла. В элегантной и светлой спальне установлена широкая кровать размера «king-size», ортопедический матрас и светонепроницаемые шторы. Номер также оснащен контролируемой системой кондиционирования, смарт-телевизором, высокоскоростным интернетом, набором для заваривания чая и кофе, питьевой водой, халатом и тапочками. В номере имеется просторная ванна, обеспеченная полотенцами и одноразовыми средствами личной гигиены. В услугу так же включен завтрак «шведский стол».",
     },
     5: {
-      title: "Люкс одноместный",
-      capacity: "1 гостя",
-      size: "30 м²",
+      title: "Номер полулюкс с большой кроватью",
+      capacity: "2 гостя",
+      size: "21 м²",
       rooms: "2 комнаты",
       desc:
-        "Изысканный люкс: king-size кровать, отдельная гостиная, ванная, климат-контроль.",
+        "Удобный номер с одной большой кроватью площадью 21 кв.м. с мягким креслом и журнальным столиком, широкая кровать с удобным матрасом обеспечит спокойный и безмятежный сон. Номер также оснащен Контролируемой системой кондиционирования, телевизором, набором для заваривания чая и кофе, тапочками. В номерах имеется душевые кабины, либо ванна обеспеченные полотенцами и одноразовыми средствами личной гигиены. В услугу так же включен завтрак «шведский стол», питьевая вода.",
     },
     6: {
-      title: "Делюкс двухместный",
-      capacity: "2 гостя",
-      size: "30 м²",
-      rooms: "2 комната",
+      title: "Трехместный номер",
+      capacity: "3 гостя",
+      size: "25 м²",
+      rooms: "2 комнаты",
       desc:
-        "Современный и уютный номер для пар и деловых гостей.",
+        "Трехместный номер с площадью 25 кв.м. оснащен тремя удобными кроватями с ортопедическими матрасами, Номер также оснащен контролируемой системой кондиционирования, телевизором, набором для заваривания чая и кофе, тапочками. В номерах имеется просторная ванна, обеспеченные полотенцами и одноразовыми средствами личной гигиены. В услугу так же включен завтрак «шведский стол», питьевая вода.",
     },
   },
+
   EN: {
     1: {
       title: "Standard Single Room",
@@ -243,47 +257,47 @@ const ROOMS_TEXT: Record<LangCode, Record<number, RoomText>> = {
       size: "18 m²",
       rooms: "1 room",
       desc:
-        "Cozy standard room ideal for solo travelers—clean, quiet, and well equipped.",
+        "A cozy and bright 18 m² room equipped with essentials for a comfortable stay: air-conditioning, tea/coffee set, bathrobe and slippers. Bathroom with shower or bathtub, towels and complimentary toiletries.",
     },
     2: {
-      title: "Standard Double Room",
-      capacity: "2 guests",
+      title: "Standard Room with Two Beds",
+      capacity: "1 guest",
       size: "21 m²",
       rooms: "1 room",
       desc:
-        "Bright, comfortable room with two single beds and a modern interior.",
+        "21 m² standard twin room with two orthopedic-mattress beds. Includes A/C, TV, tea/coffee set, slippers. Bathroom with shower or bathtub, towels and toiletries.",
     },
     3: {
-      title: "Standard Triple Room",
-      capacity: "3 guests",
-      size: "30 m²",
+      title: "Family Room with Large Bed",
+      capacity: "1 guest",
+      size: "21 m²",
       rooms: "1 room",
       desc:
-        "Spacious and light—great for a family or a group of three.",
+        "Comfortable 21 m² room with a large bed, soft armchair and coffee table. Wide bed with quality mattress ensures restful sleep. A/C, TV, tea/coffee set, slippers. Shower or bathtub with towels and toiletries. Breakfast (buffet) and drinking water included.",
     },
     4: {
-      title: "Family Room",
-      capacity: "2–3 guests",
-      size: "40 m²",
+      title: "Luxury Room",
+      capacity: "2 guests",
+      size: "33 m²",
       rooms: "1 room",
       desc:
-        "Elegant and spacious; lounge area, climate control, and fast Wi-Fi.",
+        "A 33 m² luxury accommodation: living area with soft sofas and an elegant bedroom with a king-size bed, orthopedic mattress and blackout curtains. Features A/C, smart TV, high-speed internet, tea/coffee set, drinking water, bathrobe and slippers. Spacious bathroom. Breakfast (buffet) included.",
     },
     5: {
-      title: "Luxury Single Room",
-      capacity: "1 guests",
-      size: "30 m²",
+      title: "Semi-Luxury Room with Large Bed",
+      capacity: "2 guests",
+      size: "21 m²",
       rooms: "2 rooms",
       desc:
-        "Refined suite with a king-size bed, separate living area, and bathtub.",
+        "Comfortable room with a large bed (21 m²): A/C, TV, tea/coffee set, slippers. Bathroom with shower or bathtub, towels and toiletries. Breakfast (buffet) and drinking water included.",
     },
     6: {
-      title: "Deluxe Double Room",
-      capacity: "1 guests",
-      size: "30 m²",
-      rooms: "1 room",
+      title: "Triple Room",
+      capacity: "3 guests",
+      size: "25 m²",
+      rooms: "2 rooms",
       desc:
-        "Modern and cozy—enhanced soundproofing and stylish interior.",
+        "25 m² triple room with orthopedic beds, equipped with A/C, TV, tea/coffee set and slippers. Spacious bathroom with towels and toiletries. Breakfast (buffet) and drinking water included.",
     },
   },
 };
@@ -321,8 +335,10 @@ export const getRoomPrice = (room: RoomBase, isInternational: boolean): number =
 // Price format (UZS)
 export const formatPriceUZS = (price: number, lang: LangCode): string => {
   const nf =
-    lang === "RU" ? new Intl.NumberFormat("ru-RU")
-    : lang === "EN" ? new Intl.NumberFormat("en-US")
-    : new Intl.NumberFormat("uz-UZ");
+    lang === "RU"
+      ? new Intl.NumberFormat("ru-RU")
+      : lang === "EN"
+      ? new Intl.NumberFormat("en-US")
+      : new Intl.NumberFormat("uz-UZ");
   return `${nf.format(price)} so’m`;
 };

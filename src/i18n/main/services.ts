@@ -14,114 +14,114 @@ export const SERVICES_COPY: Record<LangCode, ServicesCopy> = {
   UZ: {
     headingTitle: "Qulayliklaringiz uchun xizmatlar",
     headingLead:
-      "S-Namangan mehmonxonasi mehmonlari uchun barcha zarur xizmatlarni taqdim etadi. Har bir tafsilot sizning rohat va tinchligingiz uchun.",
+      "Sodiq-Namangan mehmonxonasi mehmonlari uchun barcha zarur xizmatlarni taqdim etadi. Har bir tafsilot sizning rohat va tinchligingiz uchun.",
     learnMore: "Batafsil",
     items: {
       1: {
-        title: "Nonushta “Bufet”",
+        title: "Restoran",
         desc:
-          "S-Namangan mehmonxonasida nonushta bufeti! Ertangizni mazali va sermazmun boshlang — yangi taomlar va ichimliklar tanlovi siz uchun.",
+          "«Sodiq-Namangan» mehmonxonasining beshinchi qavatida joylashgan keng restoran — milliy va yevropa oshxonasining eng yaxshi an’analarini o‘zida mujassam etgan.",
       },
       2: {
         title: "Avtoturargoh",
         desc:
-          "Mehmonlarimiz uchun qulay va xavfsiz avtoturargoh maydoni mavjud. Qulay joylashuv — bezovta bo‘lmang.",
+          "Mehmonlarimiz uchun qulay va xavfsiz bepul avtoturargoh mavjud. Avtomobilingizni ishonch bilan qoldirishingiz mumkin.",
       },
       3: {
         title: "Wi-Fi",
         desc:
-          "Barcha hududlarda bepul yuqori tezlikdagi Wi-Fi. Xonalarda, umumiy joylarda va hududda internet mavjud.",
+          "Barcha hududlarda bepul yuqori tezlikdagi Wi-Fi. Xonalarda, restoranda va umumiy joylarda barqaror internet mavjud.",
       },
       4: {
         title: "Sauna",
         desc:
-          "S-Namangan saunasi — kun davomida charchoqni yozish va dam olish uchun ajoyib joy. Iliq muhit va qulay sharoitlar.",
+          "«Sodiq-Namangan» saunasi — dam olish va sog‘lomlashtirish uchun ajoyib joy. Fin, turk va fito saunalari siz uchun.",
       },
       5: {
-        title: "Yozgi basseyn",
+        title: "Basseyn",
         desc:
-          "Och-iqil maydondagi yozgi basseyn — issiq kunlarda suzish va dam olish uchun zo‘r tanlov. Oila va do‘stlar bilan maroqli dam oling.",
+          "Yozgi ochiq basseyn — issiq kunlarda suzish va tetiklik uchun mukammal tanlov. Oila va do‘stlar bilan maroqli dam oling.",
       },
       6: {
-        title: "Qushlar bog‘i",
+        title: "Ichki hovli va bog‘",
         desc:
-          "Hovlimizdagi sokin yashil maskan — kichik qushlar bog‘i bilan. Qushlar sayrashi ostida yoqimli tonglar.",
+          "Mehmonxonaning ichki hovlisi va qushlar bog‘i — ertalabki qushlar sayrashi ostida tinchlik va tabiat bilan uyg‘unlik.",
       },
     },
   },
   RU: {
     headingTitle: "Сервисы для вашего комфорта",
     headingLead:
-      "Гостиница S-Namangan предоставляет все необходимые услуги для гостей. Каждая деталь — для вашего удобства и спокойствия.",
+      "Отель «Sodiq-Namangan» предоставляет все необходимые услуги для гостей. Каждая деталь — для вашего удобства и спокойствия.",
     learnMore: "Подробнее",
     items: {
       1: {
-        title: "Завтрак «Шведский стол»",
+        title: "Ресторан",
         desc:
-          "Начните утро со вкусом! Разнообразный буфет с горячими и холодными блюдами, свежей выпечкой и напитками.",
+          "Просторный ресторан на пятом этаже отеля «Sodiq-Namangan» — национальная и европейская кухня в уютной атмосфере.",
       },
       2: {
         title: "Парковка",
         desc:
-          "Для гостей предусмотрена удобная и безопасная парковка на территории отеля. Никаких лишних забот.",
+          "Для гостей предусмотрена удобная и безопасная бесплатная парковка на территории отеля. Всё для вашего удобства.",
       },
       3: {
         title: "Wi-Fi",
         desc:
-          "Бесплатный высокоскоростной Wi-Fi на всей территории: в номерах, общественных зонах и во внутреннем дворе.",
+          "Бесплатный высокоскоростной Wi-Fi на всей территории: в номерах, ресторане и общественных зонах.",
       },
       4: {
         title: "Сауна",
         desc:
-          "Идеальное место для отдыха и восстановления после насыщенного дня. Теплая атмосфера и комфорт.",
+          "Сауна в отеле «Sodiq-Namangan» — место для отдыха, расслабления и восстановления сил. Финская, турецкая и фито-бочка.",
       },
       5: {
-        title: "Летний бассейн",
+        title: "Бассейн",
         desc:
-          "Открытый бассейн под открытым небом — плавание и релакс в жаркие дни. Подходит для отдыха всей семьи.",
+          "Открытый бассейн под открытым небом с системой фильтрации воды. Идеален для отдыха всей семьи.",
       },
       6: {
-        title: "Сад птиц",
+        title: "Внутренний двор и сад",
         desc:
-          "Уютный зеленый дворик с небольшим садом птиц — встречайте тихие утра под пение пернатых.",
+          "Зелёный внутренний двор с садом и поющими птицами — наслаждайтесь тишиной и природой.",
       },
     },
   },
   EN: {
     headingTitle: "Services for Your Comfort",
     headingLead:
-      "S-Namangan Hotel provides all essential services for our guests. Every detail is designed for your ease and peace of mind.",
+      "The «Sodiq-Namangan» Hotel provides all essential services for our guests. Every detail is designed for your comfort and peace of mind.",
     learnMore: "Learn more",
     items: {
       1: {
-        title: "Breakfast Buffet",
+        title: "Restaurant",
         desc:
-          "Start your morning with flavor! A varied buffet with hot and cold dishes, fresh pastries, and drinks.",
+          "The spacious restaurant on the fifth floor of the «Sodiq-Namangan» Hotel serves national and European cuisine in a cozy setting.",
       },
       2: {
-        title: "Parking Space",
+        title: "Parking",
         desc:
-          "Convenient and secure on-site parking is available for all guests. Park with confidence.",
+          "For guests’ convenience, a safe and free on-site parking area is available. Everything is ready for your comfort.",
       },
       3: {
         title: "Wi-Fi",
         desc:
-          "Free high-speed Wi-Fi across the property — in rooms, public areas, and the courtyard.",
+          "Free high-speed Wi-Fi throughout the hotel — available in rooms, the restaurant, and public areas.",
       },
       4: {
         title: "Sauna",
         desc:
-          "The perfect place to unwind and recharge after a busy day. Warm atmosphere and comfort.",
+          "The sauna at «Sodiq-Namangan» Hotel is perfect for rest and recovery — featuring Finnish, Turkish, and herbal sauna types.",
       },
       5: {
-        title: "Summer Pool",
+        title: "Swimming Pool",
         desc:
-          "Open-air summer pool — swim and relax in comfort. Great for hot days with family and friends.",
+          "An open-air pool with modern filtration — a refreshing choice for hot days, ideal for families and friends.",
       },
       6: {
-        title: "Bird Garden",
+        title: "Inner Courtyard & Garden",
         desc:
-          "A quiet green courtyard with a small bird garden — enjoy calm mornings with birdsong.",
+          "A peaceful courtyard and bird garden — enjoy quiet mornings surrounded by nature and birdsong.",
       },
     },
   },
