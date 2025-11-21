@@ -66,7 +66,7 @@ export default function RoomCard({ room }: { room: Room }) {
       <div className="relative bg-white p-3 pb-0">
         <div
           className="overflow-hidden rounded-xl mx-auto relative"
-          style={{ width: "360px", height: "220px" }}
+          style={{ width: "320px", height: "220px" }}
         >
           <Slider {...settings}>
             {room.images.map((img, i) => (
