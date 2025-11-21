@@ -10,9 +10,9 @@ function NextArrow(props: any) {
   return (
     <button
       onClick={onClick}
-      className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 shadow-md hover:bg-white transition p-1"
+      className="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white shadow-lg hover:bg-gray-100 transition p-2"
     >
-      <IoChevronForward className="text-gray-700" size={18} />
+      <IoChevronForward className="text-gray-700" size={20} />
     </button>
   );
 }
@@ -22,9 +22,9 @@ function PrevArrow(props: any) {
   return (
     <button
       onClick={onClick}
-      className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 shadow-md hover:bg-white transition p-1"
+      className="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white shadow-lg hover:bg-gray-100 transition p-2"
     >
-      <IoChevronBack className="text-gray-700" size={18} />
+      <IoChevronBack className="text-gray-700" size={20} />
     </button>
   );
 }
@@ -40,11 +40,23 @@ export default function RoomCard({ room }: { room: Room }) {
     autoplaySpeed: 4000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    appendDots: (dots: React.ReactNode) => (
-      <div className="absolute w-full flex justify-center">{dots}</div>
+
+    // ⭐ Dots OUTSIDE the image (beautiful & centered)
+    appendDots: (dots:any) => (
+      <div className="pt-3">
+        <ul className="flex justify-center items-center gap-2">{dots}</ul>
+      </div>
     ),
+
     customPaging: () => (
-      <div className="h-2 w-2 rounded-full bg-gray-300 hover:bg-gray-500 transition-all mt-[8px]" />
+      <div
+        className="
+          h-3 w-3 rounded-full 
+          bg-gray-300 
+          hover:bg-gray-500
+          transition-all duration-300
+        "
+      />
     ),
   };
 
@@ -52,15 +64,18 @@ export default function RoomCard({ room }: { room: Room }) {
     <article className="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden hover:shadow-md transition">
       {/* Slider */}
       <div className="relative bg-white p-3 pb-0">
-        <div className="aspect-[4/3] w-full overflow-hidden rounded-xl">
+        <div
+          className="overflow-hidden rounded-xl mx-auto relative"
+          style={{ width: "360px", height: "220px" }}
+        >
           <Slider {...settings}>
             {room.images.map((img, i) => (
-              <div key={i} className="relative h-full w-full">
+              <div key={i} className="relative">
                 <img
                   src={img}
                   alt={`${room.title} photo ${i + 1}`}
-                  className="h-full w-full object-cover rounded-xl"
                   loading="lazy"
+                  className="w-[360px] h-[220px] object-cover rounded-xl"
                 />
               </div>
             ))}
@@ -74,20 +89,20 @@ export default function RoomCard({ room }: { room: Room }) {
 
         <div className="flex items-center gap-5 text-gray-600 text-sm">
           <div className="flex items-center gap-1.5">
-            <FaUserFriends className="text-gray-500" size={15} />
+            <FaUserFriends className="text-gray-500" size={16} />
             <span>{room.capacity}</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <MdOutlineSquareFoot className="text-gray-500" size={15} />
+            <MdOutlineSquareFoot className="text-gray-500" size={16} />
             <span>{room.size}</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <FaBed className="text-gray-500" size={15} />
+            <FaBed className="text-gray-500" size={16} />
             <span>{room.rooms}</span>
           </div>
         </div>
 
-        <div className="pt-2 text-base md:text-lg font-bold tracking-tight text-gray-900">
+        <div className="pt-2 text-base md:text-lg font-bold text-gray-900">
           {room.price.toLocaleString("uz-UZ")} so’m
         </div>
       </div>

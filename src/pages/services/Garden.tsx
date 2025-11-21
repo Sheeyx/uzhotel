@@ -3,7 +3,7 @@ import React from "react";
 import ServiceGallery from "../../components/ServiceGallery";
 import { useLanguage } from "../../i18n/LanguageContext";
 
-export default function Birds() {
+export default function Garden() {
   const { code } = useLanguage();
 
   const copy = {
@@ -31,11 +31,11 @@ export default function Birds() {
       title={T.title}
       lead={T.lead}
       images={[
-        "/assets/services/bird1.webp",
-        "/assets/services/bird2.webp",
-        "/assets/services/bird3.webp",
-        "/assets/services/bird4.webp",
-        "/assets/services/bird5.webp",
+        "/images/services/garden/img1.webp",
+        "/images/services/garden/img2.webp",
+        "/images/services/garden/img3.webp",
+        "/images/services/garden/img4.webp",
+        "/images/services/garden/img5.webp",
       ]}
     />
   );

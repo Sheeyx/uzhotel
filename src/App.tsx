@@ -9,7 +9,7 @@ import Breakfast from "./pages/services/Breakfast";
 import Pool from "./pages/services/Pool";
 import Sauna from "./pages/services/Sauna";
 import Parking from "./pages/services/Parking";
-import Birds from "./pages/services/Birds";
+import Birds from "./pages/services/Garden";
 import Wifi from "./pages/services/Wifi";
 import GalleryPage from "./pages/gallery/GalleryPage";
 import RoomDetail from "./pages/rooms/components/RoomDetail";

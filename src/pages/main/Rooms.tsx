@@ -7,7 +7,13 @@ import { getRoomsCarouselCopy } from "../../i18n/pages/roomsCarousel";
 
 const SLIDE_MS = 650; // animation speed (ms)
 const EASE = "cubic-bezier(0.22, 0.61, 0.36, 1)";
-const MD_BP = 768; // Tailwind md breakpoint (px)
+const MD_BP = 768; // Tailwind md breakpoint (px);
+
+// Helper: choose a single main image per room (Option 1 style)
+function getMainImage(r: Room): string {
+  // You used r.images[2] || r.images[0] before
+  return r.images[2] || r.images[0];
+}
 
 export default function RoomsCarousel() {
   const { code } = useLanguage();
@@ -19,7 +25,6 @@ export default function RoomsCarousel() {
   const [revealed, setRevealed] = useState(false);
   useEffect(() => {
     if (!sectionRef.current || typeof IntersectionObserver === "undefined") {
-      // Fallback: reveal immediately
       setRevealed(true);
       return;
     }
@@ -29,10 +34,10 @@ export default function RoomsCarousel() {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setRevealed(true);
-          io.disconnect(); // once only
+          io.disconnect();
         }
       },
-      { root: null, rootMargin: "0px", threshold: 0.2 } // ~20% visible
+      { root: null, rootMargin: "0px", threshold: 0.2 }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -196,6 +201,22 @@ export default function RoomsCarousel() {
 
   const listToRender = !isMobile && isAnimating && dir ? extendedView : baseView;
 
+  // ── 🔥 Option 1-style preloading of next/prev room images
+  useEffect(() => {
+    if (!safeRooms.length) return;
+    const m = safeRooms.length;
+
+    const nextIndex = (index + 1) % m;
+    const prevIndex = (index - 1 + m) % m;
+
+    [nextIndex, prevIndex].forEach((idx) => {
+      const room = safeRooms[idx];
+      if (!room) return;
+      const img = new Image();
+      img.src = getMainImage(room); // preload main image
+    });
+  }, [index, safeRooms]);
+
   // ── Utilities for first-reveal styles
   const revealClass = (base = "") =>
     revealed || prefersReducedMotion
@@ -206,7 +227,7 @@ export default function RoomsCarousel() {
     revealed && !prefersReducedMotion
       ? {
           transition: `opacity 700ms ${EASE}, transform 700ms ${EASE}, filter 700ms ${EASE}`,
-          transitionDelay: `${100 + i * 90}ms`, // nice stagger
+          transitionDelay: `${100 + i * 90}ms`,
         }
       : { transition: `opacity 0ms, transform 0ms, filter 0ms` };
 
@@ -226,46 +247,51 @@ export default function RoomsCarousel() {
         <p className="mt-3 text-slate-600">{T.lead}</p>
       </div>
 
-      {/* MOBILE: 1-per-view swipe/scroll with scroll-snap (scrollbar hidden) */}
+      {/* MOBILE: 1-per-view swipe/scroll with scroll-snap */}
       {isMobile ? (
         <div className={revealClass("relative mt-8")} style={revealStyle(1)}>
           <div className="-mx-4 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory scroll-px-4 pb-1 overscroll-x-contain">
             <div className="flex gap-4 px-4">
-              {rooms.map((r, i) => (
-                <div
-                  key={r.id}
-                  className={revealClass("snap-start shrink-0 basis-full")}
-                  style={revealStyle(2 + i)}
-                >
-                  <Link
-                    to="/rooms"
-                    className="block w-full group focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-2xl"
+              {rooms.map((r, i) => {
+                const mainImg = getMainImage(r);
+
+                return (
+                  <div
+                    key={r.id}
+                    className={revealClass("snap-start shrink-0 basis-full")}
+                    style={revealStyle(2 + i)}
                   >
-                    <article className="overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-slate-100 transition hover:shadow-xl">
-                      <div className="p-3">
-                        <img
-                          src={r.images[2] || r.images[0]}
-                          alt={r.title}
-                          className="h-56 w-full object-cover rounded-[20px] transition-transform duration-500 group-hover:scale-[1.03]"
-                        />
-                      </div>
-                      <div className="px-5 pb-5">
-                        <h3 className="text-2xl font-bold leading-tight text-slate-900">
-                          {r.title}
-                        </h3>
-                        {r.desc && (
-                          <p className="mt-2 line-clamp-2 text-[15px] leading-6 text-slate-600">
-                            {r.desc}
+                    <Link
+                      to="/rooms"
+                      className="block w-full group focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-2xl"
+                    >
+                      <article className="overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-slate-100 transition hover:shadow-xl">
+                        <div className="p-3">
+                          <img
+                            src={mainImg}
+                            alt={r.title}
+                            loading={i === 0 ? "eager" : "lazy"} // first visible card eager, others lazy
+                            className="h-56 w-full object-cover rounded-[20px] transition-transform duration-500 group-hover:scale-[1.03]"
+                          />
+                        </div>
+                        <div className="px-5 pb-5">
+                          <h3 className="text-2xl font-bold leading-tight text-slate-900">
+                            {r.title}
+                          </h3>
+                          {r.desc && (
+                            <p className="mt-2 line-clamp-2 text-[15px] leading-6 text-slate-600">
+                              {r.desc}
+                            </p>
+                          )}
+                          <p className="mt-5 text-2xl font-bold text-slate-900">
+                            {formatPriceUZS(r.price, code)}
                           </p>
-                        )}
-                        <p className="mt-5 text-2xl font-bold text-slate-900">
-                          {formatPriceUZS(r.price, code)}
-                        </p>
-                      </div>
-                    </article>
-                  </Link>
-                </div>
-              ))}
+                        </div>
+                      </article>
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -312,6 +338,8 @@ export default function RoomsCarousel() {
             >
               {listToRender.map((idx, i) => {
                 const r = safeRooms[idx] as Room;
+                const mainImg = getMainImage(r);
+
                 return (
                   <div
                     key={`${r.id}-${i}`}
@@ -325,8 +353,9 @@ export default function RoomsCarousel() {
                       <article className="mx-3 md:mx-4 overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-slate-100 transition hover:shadow-xl">
                         <div className="p-3">
                           <img
-                            src={r.images[2] || r.images[0]}
+                            src={mainImg}
                             alt={r.title}
+                            loading="lazy"
                             className="h-52 w-full object-cover rounded-[20px] transition-transform duration-500 group-hover:scale-[1.03]"
                           />
                         </div>
@@ -372,14 +401,26 @@ export default function RoomsCarousel() {
 function ArrowLeft(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M15 6l-6 6 6 6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 function ArrowRight(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" {...props}>
-      <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M9 6l6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }

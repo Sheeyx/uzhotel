@@ -8,3 +8,4 @@ dist/
 package-lock.json
 # Local assets (not pushed to GitHub)
 public/assets
+public/images

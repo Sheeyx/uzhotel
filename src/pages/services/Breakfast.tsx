@@ -50,11 +50,11 @@ Indulge yourself with the exquisite taste of our delicious dishes and unique des
       lead={T.lead}
       bullets={T.bullets}
       images={[
-        "/assets/services/restaurant1.webp",
-        "/assets/services/restaurant2.webp",
-        "/assets/services/restaurant3.webp",
-        "/assets/services/restaurant4.webp",
-        "/assets/services/restaurant5.webp",
+        "/images/services/restaurant/img1.webp",
+        "/images/services/restaurant/img2.webp",
+        "/images/services/restaurant/img3.webp",
+        "/images/services/restaurant/img4.webp",
+        "/images/services/restaurant/img5.webp",
       ]}
     />
   );

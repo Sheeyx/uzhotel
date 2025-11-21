@@ -30,3 +30,10 @@ a:focus-visible {
   outline: none !important;
   box-shadow: none !important;
 }
+
+.slick-dots li.slick-active div {
+  width: 14px !important;
+  height: 14px !important;
+  background-color: #2563eb !important; /* your main blue */
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.8);
+}

@@ -4,13 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "../../i18n/LanguageContext";
 import { getAboutCopy } from "../../i18n/main/aboutHotel";
 
-/**
- * Polished About section with first-scroll reveal
- * - Smooth fade/slide-in on first viewport entry (once)
- * - Slight image lift & glow on hover
- * - Respects prefers-reduced-motion
- * - Clean responsive layout with soft gradient backdrop
- */
+
 export default function AboutSection() {
   const { code } = useLanguage();
   const T = getAboutCopy(code);
@@ -57,7 +51,7 @@ export default function AboutSection() {
         <motion.div variants={fadeUp} className="w-full md:w-1/2">
           <div className="group relative">
             <img
-              src="assets/about/about_hotel.webp"
+              src="images/about_hotel.webp"
               alt="S-Namangan Hotels"
               loading="lazy"
               className="w-full rounded-2xl object-cover shadow-2xl shadow-black/30 ring-1 ring-white/10 transition-transform duration-500 group-hover:-translate-y-1"

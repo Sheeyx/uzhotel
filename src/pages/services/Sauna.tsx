@@ -44,11 +44,12 @@ export default function Sauna() {
       lead={T.lead}
       bullets={T.bullets}
       images={[
-        "/assets/services/sauna.webp",
-        "/assets/services/sauna1.webp",
-        "/assets/services/sauna2.webp",
-        "/assets/services/sauna3.webp",
-        "/assets/services/sauna4.webp",
+        "/images/services/sauna/image1.webp",
+        "/images/services/sauna/image2.webp",
+        "/images/services/sauna/image3.webp",
+        "/images/services/sauna/image4.webp",
+        "/images/services/sauna/image5.webp",
+
       ]}
     />
   );
