@@ -60,14 +60,11 @@ export default function RoomCard({ room }: { room: Room }) {
     ),
   };
 
-  return (
+return (
     <article className="rounded-2xl bg-white shadow-sm ring-1 ring-gray-100 overflow-hidden hover:shadow-md transition">
       {/* Slider */}
       <div className="relative bg-white p-3 pb-0">
-        <div
-          className="overflow-hidden rounded-xl mx-auto relative"
-          style={{ width: "320px", height: "220px" }}
-        >
+        <div className="overflow-hidden rounded-xl mx-auto relative w-full h-[220px] sm:h-[240px]">
           <Slider {...settings}>
             {room.images.map((img, i) => (
               <div key={i} className="relative">
@@ -75,7 +72,7 @@ export default function RoomCard({ room }: { room: Room }) {
                   src={img}
                   alt={`${room.title} photo ${i + 1}`}
                   loading="lazy"
-                  className="w-[360px] h-[220px] object-cover rounded-xl"
+                  className="w-full h-[220px] sm:h-[240px] object-cover rounded-xl"
                 />
               </div>
             ))}

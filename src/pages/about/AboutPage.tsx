@@ -13,7 +13,7 @@ export default function AboutPage() {
       <BackLink />
 
       {/* Title */}
-      <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-6">
+      <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
         {T.pageTitle}
       </h1>
 
@@ -53,7 +53,7 @@ export default function AboutPage() {
         {/* LEFT: text content */}
         <div className="lg:col-span-2 space-y-6 text-gray-700 leading-relaxed">
           <div>
-            <h2 className="text-xl font-bold">{T.sec1.title}</h2>
+            <h2 className="text-xl font-bold mb-4">{T.sec1.title}</h2>
             <p>{T.sec1.line1}</p>
             <p>{T.sec1.line2}</p>
             <p>{T.sec1.line3}</p>
@@ -67,7 +67,7 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <h2 className="text-xl font-bold">{T.sec2.title}</h2>
+            <h2 className="text-xl font-bold mb-4">{T.sec2.title}</h2>
             <p>{T.sec2.p1}</p>
             <p>{T.sec2.p2}</p>
           </div>
