@@ -1,14 +1,20 @@
 // src/services/api/bot.ts
 import axios from "axios";
 
-// use your actual base url
-const API_BASE = process.env.NEXT_PUBLIC_API_URL;
+const API_BASE = process.env.REACT_APP_BACKEND_URL || "";
+const API_KEY = process.env.REACT_APP_BOOKING_API_KEY || "";
 
-// TEMP: hardcode to prove request path works
-const API_KEY = "super-secret-123";
+console.log("[BOT FRONTEND] API_BASE =", API_BASE || "(same-origin)");
+console.log("[BOT FRONTEND] API_KEY exists =", Boolean(API_KEY));
 
-console.log("[booking] API_BASE =", API_BASE);
-console.log("[booking] API_KEY len =", API_KEY.length);
+const http = axios.create({
+  baseURL: API_BASE || undefined,  // backend url or same-origin
+  timeout: 15000,
+  headers: {
+    "Content-Type": "application/json",
+    "x-api-key": API_KEY,
+  },
+});
 
 export async function sendBookingToBot(p: {
   roomTitle: string;
@@ -22,8 +28,6 @@ export async function sendBookingToBot(p: {
   guests: number;
   totalPrice?: number;
 }) {
-  const res = await axios.post(`${API_BASE}/api/bot/booking`, p, {
-    headers: { "x-api-key": API_KEY },
-  });
+  const res = await http.post("/api/bot/booking", p); // ALWAYS absolute path
   return res.data;
 }
