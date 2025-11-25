@@ -96,7 +96,7 @@ export async function sendBookingEmail(
 ) {
   const normalized = toEmailPayload(payload, roomTitle);
 
-  const res = await http.post("/api/booking/email", {
+  const res = await http.post("/booking/email", {
     ...normalized,
     toEmail,
   });

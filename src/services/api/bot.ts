@@ -28,6 +28,6 @@ export async function sendBookingToBot(p: {
   guests: number;
   totalPrice?: number;
 }) {
-  const res = await http.post("/api/bot/booking", p); // ALWAYS absolute path
+  const res = await http.post("/bot/booking", p); // ALWAYS absolute path
   return res.data;
 }
