@@ -1,8 +1,6 @@
 // src/services/BotService.ts
 import axios from "axios";
 import { API_KEY, serverApi } from "../config";
-// 🔹 If you already have a Messages type, import it here:
-// import type { Messages } from "../libs/types/messages";
 
 export type BotBookingPayload = {
   roomTitle: string;
@@ -17,30 +15,31 @@ export type BotBookingPayload = {
   totalPrice?: number;
 };
 
-// If you don't have a Messages type yet, you can temporarily use this:
 export type Messages = any;
 
 class BotService {
   private readonly path: string;
 
   constructor() {
-    this.path = `${serverApi}`;
-    this.path = `${API_KEY}`;
+    // ❗ Faqat backend URL bo‘ladi
+    this.path = serverApi;          // masalan: https://snhotel.uz/api
   }
 
-  // ✅ Class method (not "async function" inside class)
   public async sendBookingToBot(input: BotBookingPayload): Promise<Messages> {
     try {
-      const result = await axios.post(`${this.path}/booking/bot`, input, {
-        withCredentials: true,
-        headers: {
-          "Content-Type": "application/json",
-           "x-api-key": API_KEY, // 🔑 muhim
+      const result = await axios.post(
+        `${this.path}/booking/bot`,   // ❗ endpoint shu
+        input,
+        {
+          withCredentials: false,    // cookie kerak emas
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": API_KEY,    // ❗ API KEY shu yerda ketadi
+          },
+        }
+      );
 
-        },
-      });
-
-      console.log("sendBookingToBot", result);
+      console.log("sendBookingToBot", result.data);
       return result.data;
     } catch (err) {
       console.log("Error sendBookingToBot", err);
