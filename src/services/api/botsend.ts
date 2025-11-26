@@ -19,11 +19,13 @@ export type Messages = any;
 
 class BotService {
   private readonly path: string;
+  
 
   constructor() {
     // ❗ Faqat backend URL bo‘ladi
-    this.path = serverApi;          // masalan: https://snhotel.uz/api
+    this.path = serverApi;        
   }
+
 
   public async sendBookingToBot(input: BotBookingPayload): Promise<Messages> {
     console.log(this.path, "this.path")
