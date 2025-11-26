@@ -8,9 +8,13 @@ import { useLanguage } from "../i18n/LanguageContext";
 import { getBookingCopy } from "../i18n/components/bookingModal";
 import { getCountryOptionsWithFlags } from "../utils/countries";
 import { useBookingForm } from "../hooks/useBookingForm";
-import { sendBookingToBot } from "../services/api/bot";
+
 import { sendBookingEmail } from "../services/api/email";
 import { CalendarIcon } from "./icons/Icons";
+import BotService from "../services/api/botsend";
+
+/* Create a single instance of BotService */
+const botService = new BotService();
 
 /* ✅ Success Dialog */
 function SuccessDialog({
@@ -133,7 +137,8 @@ export default function BookingModal({ open, onClose, room, onSubmit, toEmail }:
     try {
       setSending(true);
 
-      await sendBookingToBot({
+      // 🔵 send to Telegram bot via BotService
+      await botService.sendBookingToBot({
         roomTitle: room.title,
         guestName: `${firstName} ${secondName}`.trim(),
         phone,
@@ -146,6 +151,7 @@ export default function BookingModal({ open, onClose, room, onSubmit, toEmail }:
         totalPrice,
       });
 
+      // 📨 send email
       await sendBookingEmail(
         {
           roomTitle: room.title,
@@ -271,7 +277,9 @@ export default function BookingModal({ open, onClose, room, onSubmit, toEmail }:
                 className={inputStyle}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder={code === "RU" ? "ivan@example.com" : code === "EN" ? "john@example.com" : "ali@example.com"}
+                placeholder={
+                  code === "RU" ? "ivan@example.com" : code === "EN" ? "john@example.com" : "ali@example.com"
+                }
               />
             </div>
 
