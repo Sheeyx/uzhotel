@@ -1,14 +1,16 @@
 // src/services/api/bot.ts
 import axios from "axios";
 
-const API_BASE = process.env.REACT_APP_BACKEND_URL || "";
-const API_KEY = process.env.REACT_APP_BOOKING_API_KEY || "";
+// MUST END WITHOUT TRAILING SLASH ❗
+// Example: https://www.snhotel.uz/api
+const API_BASE = (process.env.REACT_APP_BACKEND_URL || "").replace(/\/+$/, "");
+const API_KEY  = process.env.REACT_APP_BOOKING_API_KEY || "";
 
-console.log("[BOT FRONTEND] API_BASE =", API_BASE || "(same-origin)");
+console.log("[BOT FRONTEND] API_BASE =", API_BASE);
 console.log("[BOT FRONTEND] API_KEY exists =", Boolean(API_KEY));
 
 const http = axios.create({
-  baseURL: API_BASE || undefined,  // backend url or same-origin
+  baseURL: API_BASE, // <= always full backend URL
   timeout: 15000,
   headers: {
     "Content-Type": "application/json",
@@ -16,6 +18,9 @@ const http = axios.create({
   },
 });
 
+/**
+ * Send booking data to backend → Telegram bot
+ */
 export async function sendBookingToBot(p: {
   roomTitle: string;
   guestName: string;
@@ -28,6 +33,7 @@ export async function sendBookingToBot(p: {
   guests: number;
   totalPrice?: number;
 }) {
-  const res = await http.post("/booking/bot", p); // ALWAYS absolute path
+  // correct backend route: /api/bot/booking
+  const res = await http.post("/bot/booking", p);
   return res.data;
 }
