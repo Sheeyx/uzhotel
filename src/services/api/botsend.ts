@@ -1,6 +1,6 @@
 // src/services/BotService.ts
 import axios from "axios";
-import { serverApi } from "../config";
+import { API_KEY, serverApi } from "../config";
 // 🔹 If you already have a Messages type, import it here:
 // import type { Messages } from "../libs/types/messages";
 
@@ -25,6 +25,7 @@ class BotService {
 
   constructor() {
     this.path = `${serverApi}`;
+    this.path = `${API_KEY}`;
   }
 
   // ✅ Class method (not "async function" inside class)
@@ -34,6 +35,8 @@ class BotService {
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
+           "x-api-key": API_KEY, // 🔑 muhim
+
         },
       });
 
