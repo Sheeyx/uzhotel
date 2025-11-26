@@ -26,6 +26,7 @@ class BotService {
   }
 
   public async sendBookingToBot(input: BotBookingPayload): Promise<Messages> {
+    console.log(this.path, "this.path")
     try {
       const result = await axios.post(
         `${this.path}/booking/bot`,   // ❗ endpoint shu

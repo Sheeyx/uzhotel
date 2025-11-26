@@ -138,18 +138,18 @@ export default function BookingModal({ open, onClose, room, onSubmit, toEmail }:
       setSending(true);
 
       // 🔵 send to Telegram bot via BotService
-      // await botService.sendBookingToBot({
-      //   roomTitle: room.title,
-      //   guestName: `${firstName} ${secondName}`.trim(),
-      //   phone,
-      //   email,
-      //   nationality: nationality ? (nationality.label || (nationality as any).value) : null,
-      //   checkin: checkIn,
-      //   checkout: checkOut,
-      //   nights,
-      //   guests: guestCount,
-      //   totalPrice,
-      // });
+      await botService.sendBookingToBot({
+        roomTitle: room.title,
+        guestName: `${firstName} ${secondName}`.trim(),
+        phone,
+        email,
+        nationality: nationality ? (nationality.label || (nationality as any).value) : null,
+        checkin: checkIn,
+        checkout: checkOut,
+        nights,
+        guests: guestCount,
+        totalPrice,
+      });
 
       // 📨 send email
       await sendBookingEmail(
