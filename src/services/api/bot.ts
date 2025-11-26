@@ -34,6 +34,6 @@ export async function sendBookingToBot(p: {
   totalPrice?: number;
 }) {
   // correct backend route: /api/bot/booking
-  const res = await http.post("/bot/booking", p);
+  const res = await http.post("/booking/bot", p);
   return res.data;
 }
