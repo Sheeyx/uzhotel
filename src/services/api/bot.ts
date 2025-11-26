@@ -2,6 +2,8 @@
 import axios from "axios";
 
 // MUST END WITHOUT TRAILING SLASH ❗
+// Example correct value in .env:
+// REACT_APP_BACKEND_URL=https://snhotel.uz/api
 const API_BASE = (process.env.REACT_APP_BACKEND_URL || "").replace(/\/+$/, "");
 const API_KEY  = process.env.REACT_APP_BOOKING_API_KEY || "";
 
@@ -17,6 +19,10 @@ const http = axios.create({
   },
 });
 
+/**
+ * Send booking data to backend → Telegram bot
+ * Backend route: POST /booking
+ */
 export async function sendBookingToBot(p: {
   roomTitle: string;
   guestName: string;
@@ -29,7 +35,6 @@ export async function sendBookingToBot(p: {
   guests: number;
   totalPrice?: number;
 }) {
-  // ✅ CORRECT ENDPOINT
-  const res = await http.post("/booking", p);
+  const res = await http.post("/booking/bot", p);
   return res.data;
 }
